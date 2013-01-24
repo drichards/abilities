@@ -1,0 +1,9 @@
+<div id="abilities"></div>
+
+<script type="text/javascript">
+  $(function() {
+      // Abilities is the app name
+      window.router = new Abilities.Routers.AbilitiesRouter({abilities: <%= @abilities.to_json.html_safe -%>});
+      Backbone.history.start();
+    });
+  </script>
