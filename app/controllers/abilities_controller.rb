@@ -58,6 +58,10 @@ class AbilitiesController < ApplicationController
   def update
     @ability = Ability.find(params[:id])
 
+    params[:ability].slice!(
+      "ability_type", "name", "description", "body", "column", "order"
+    )
+
     respond_to do |format|
       if @ability.update_attributes(params[:ability])
         format.html { redirect_to @ability, notice: 'Ability was successfully updated.' }

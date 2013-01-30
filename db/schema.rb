@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124022029) do
+ActiveRecord::Schema.define(:version => 20130126213135) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "ability_type"
     t.string   "description"
     t.string   "body"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.decimal  "column",       :default => 0.0
+    t.decimal  "order",        :default => 0.0
   end
 
 end

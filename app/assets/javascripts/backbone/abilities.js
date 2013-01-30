@@ -4,8 +4,9 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.Abilities =
-  Models: {}
-  Collections: {}
-  Routers: {}
+window.Abilities = {
+  Models: {},
+  Collections: {},
+  Routers: {},
   Views: {}
+};

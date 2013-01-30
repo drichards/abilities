@@ -1,3 +1,137 @@
 // Place all the styles related to the Abilities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#abilities {
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin: 30px;
+    padding: 20px;
+    background-color: #eee;
+
+    .abilities-list {
+        border-right: 1px dotted #ccc;
+        width: 24%;
+        float: left;
+        height: 100%;
+        padding: 0px;
+        list-style: none;
+
+        li {
+            border: 2px solid #999;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+
+        li.dragging {
+            border-style: dotted;
+            border-color: #444;
+            background-color: gray;
+        }
+    }
+
+    .abilities-list:last-child {
+        border-right: none;
+    }
+
+    .daily {
+        background-color: #8A9189;
+    }
+
+    .encounter {
+        background-color: #BA1425;
+    }
+
+    .at-will {
+        background-color: #249C14;
+    }
+
+    #shown-ability {
+        display: none;
+
+        -webkit-perspective: 1000;
+        -ms-perspective: 1000;
+        -o-perspective: 1000;
+        -moz-perspective: 1000;
+        perspective: 1000;
+
+        position: absolute;
+        top: 50px;
+
+        .flipper.flipped {
+            -webkit-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+
+        .flipper {
+            -webkit-transition: 0.6s;
+            -ms-transition: 0.6s;
+            -o-transition: 0.6s;
+            -moz-transition: 0.6s;
+            transition: 0.6s;
+            
+            -webkit-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
+            width: 300px;
+            height: 400px;
+
+            position: relative;
+
+            div.show-view {
+                z-index: 2;
+            }
+            
+            div.edit-view {
+                -webkit-transform: rotateY(180deg);
+                -ms-transform: rotateY(180deg);
+                -o-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+
+            div.show-view, div.edit-view {
+                -webkit-backface-visibility: hidden;
+                -ms-backface-visibility: hidden;
+                -o-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                backface-visibility: hidden;
+
+                box-shadow: 10px 10px 5px #888;
+
+                width: 300px;
+                height: 400px;
+                border: 10px solid black;
+                border-radius: 5px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                padding: 5px;
+
+                .body {
+                    position: absolute;
+                    bottom: 5px;
+                    background-color: #EBEBC6;
+                    border-radius: 3px;
+                    padding: 5px;
+                    height: 250px;
+                    width: 290px;
+                }
+
+                .name {
+                    font-size: 20px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #EBEBC6;
+                }
+            }
+        }
+    }
+}
