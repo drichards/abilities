@@ -3,5 +3,8 @@
 <script type="text/javascript">
   $(function() {
       var Abilities = new window.Abilities.Views.Abilities.IndexView({abilities: <%= @abilities.to_json.html_safe -%>});
+
+      abilitiesRouter = new window.Abilities.Routers.AbilityRouter();
+      Backbone.history.start({pushState: true});
   });
 </script>

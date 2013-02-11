@@ -1,11 +1,13 @@
 Abilities.Models.Ability = Backbone.Model.extend({
-  paramRoot: 'ability',
+  urlRoot: '/abilities',
 
   defaults: {
     name: null,
-    ability_type: null,
+    ability_type: 'at-will',
     description: null,
-    body: null
+    body: null,
+    column: 1,
+    order: 1
   }
 });
 

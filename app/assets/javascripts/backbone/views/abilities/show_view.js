@@ -8,9 +8,12 @@ Abilities.Views.Abilities.ShowView = Backbone.View.extend({
     "click .edit": "edit"
   },
 
+  initialize: function(options) {
+    this.model.bind("change", this.render, this);
+  },
+
   edit: function() {
-    var view = new Abilities.Views.Abilities.EditView({model : this.model});
-    view.render();
+    this.trigger("edit", this.model.id);    
   },
 
   render: function() {
@@ -18,9 +21,6 @@ Abilities.Views.Abilities.ShowView = Backbone.View.extend({
     $(this.el).addClass(this.model.get("ability_type"));
 
     left = $("#abilities").outerWidth() / 2 - $(this.el).outerWidth() / 2;
-    console.debug($("#abilities").outerWidth());
-    console.debug($(this.el).outerWidth());
-    console.debug(left);
 
     $("#shown-ability").css("left", left);
     $("#shown-ability").show();
